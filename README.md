@@ -18,23 +18,23 @@ For the use case this repository is presented, the whole GAS project should be t
 ![image](https://user-images.githubusercontent.com/89820099/177451601-01358385-e02a-4050-b204-aee67229f8bb.png)
 ### setting global variables
 .env.js file (.env.gs in Apps Script IDE) is a special one, in the sense that should only be run once, whenever global variables change. Properties' Apps Script service allow for each to project to have its assortment of global variables, which can be particularly useful to maintain code or even several environments (*e.g.* define environmental end-points). In this file you should specify the Google Sheet id you wish to use as a destination (and Google Chat URL if enabled). After setting up your own project's global variables, you can run it from the UI button or using ctrl + R, making sure the function to run is `setEnvVars`![image](https://user-images.githubusercontent.com/89820099/177452674-28cb7157-df96-4142-8fe0-bbd7e467c219.png)
-### final steps
-#### form
+## final steps
+### form
 After configuring you're GAS project, first make sure you're also done with the Google Form where this project is embedded in. Make sure it has all the questions you need to gather and process response's data.  
   
 ![image](https://user-images.githubusercontent.com/89820099/177453826-984bb301-4079-4ab5-89e3-5703e88db119.png)  
-#### spreadsheet
+### spreadsheet
 Make sure you've also added the headers to your Spreadsheet destination; see comments in spreadsheet and form modules (ss.js and form.js, respectively), and remember to add the spreadsheet id as a global variable (in .env.js).  
   
 ![image](https://user-images.githubusercontent.com/89820099/177454232-d16f754b-e4c3-49da-8b62-9f54e4bbc529.png)  
-#### chat
+### chat
 If you have a Google Workspace account that allows you to enable Google Chat webhooks, you can create a space where to monitor logs triggered by form submissions; see comments in chat's module (chat.js). To do so, create a Google chat space (choose threaded responses if you like), and click on the space's name in the upper left corner; then, select Manage webhooks and add a new webhook. The given webhook's URL should be set as a global variable (in .env.js).  
   
 ![image](https://user-images.githubusercontent.com/89820099/177456672-0170ab2b-0de5-47e6-9e34-7408ea7e5438.png) 
 
-#### response processing
+### response processing
 Aside from the possible Google Chat webhook for monitoring purposes, this is, in a very sincere way, a glorified response collector that —by default— is not very different from Google Forms' standard Spreadsheet destinations. However, you could also add metadata that depends upon processing the response itself and/or previous responses. For example, the original use case that eventually inspired the creation of this repository (again... to be used as a template), was to log the response's data in a given sheet, while generating several other records in another sheet per response, and adding metadata based on previous responses to each new record. If you wish to learn more about my use case or to find out if this template suits yours, feel free to [contact me](https://github.com/ipardogranillo) (email in github profile); suggestions and collaborations are also welcome.
-#### testing
+### testing
 If everything's properly set up, you should be able to trigger a succesful execution when submitting a response in the form this project is embedded in. Make sure to check the execution logs accesible from the left side bar in GAS browser's IDE  
   
 ![image](https://user-images.githubusercontent.com/89820099/177457277-daf12c4d-77cd-41dd-a676-8aa4450f8a2a.png)  
