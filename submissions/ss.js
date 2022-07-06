@@ -38,6 +38,9 @@
     this.loadedResponses = this.responseSheet
       .getDataRange()
       .getValues();
+   
+      
+      // TODO: add the corresponding headers to your spreadsheet destination
       // Headers assumed on first row and removed 
       Logger.log( 'headers: ' + this.loadedResponses.splice( 0, 1 ) );
       
@@ -56,7 +59,9 @@
   */
   dumpResponse( r ) {
     Logger.log( 'dumping new response' );
+   
     // hard-coded according to order in spreadsheet headers
+    // TODO: add the corresponding headers to your spreadsheet destination
     let responseToDump = [
       r.id,
       r.formId,
@@ -66,6 +71,7 @@
       r.metadata,
       r.success
     ];
+   
     this.responseSheet
       .getRange(
         this.responseSheet.getLastRow() + 1,
